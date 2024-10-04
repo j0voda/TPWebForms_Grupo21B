@@ -54,6 +54,8 @@
     <Compile Include="ItemBussiness.cs" />
     <Compile Include="ItemMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoucherBussiness.cs" />
+    <Compile Include="VoucherMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">

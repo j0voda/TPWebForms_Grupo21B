@@ -11,8 +11,8 @@ namespace dominio
 
         public string Codigo { get; set; }
         public Cliente Cliente { get; set; }
-        public DateTime fechaCanje { get; set; }
-        public Articulo articulo { get; set; }
+        public DateTime FechaCanje { get; set; }
+        public Articulo Articulo { get; set; }
 
     }
 }
