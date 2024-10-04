@@ -12,7 +12,7 @@ namespace acceso_datos
     {
         public string getIdentifier(Voucher obj)
         {
-            return obj.Codigo;
+            return $"'{obj.Codigo}'";
         }
 
         public List<string> mapFromObject(Voucher obj)
@@ -27,12 +27,14 @@ namespace acceso_datos
             voucher.Codigo = reader.GetString(0);
             
             voucher.Cliente = new Cliente();
-            voucher.Cliente.Id = reader.GetInt32(1);
+            voucher.Cliente.Id = reader[1] as int? ?? default;
 
-            voucher.FechaCanje = reader.GetDateTime(2);
+            voucher.FechaCanje = reader[2] as DateTime? ?? default;
 
             voucher.Articulo = new Articulo();
-            voucher.Articulo.Id = reader.GetInt32(3);
+            voucher.Articulo.Id = reader[3] as int? ?? default;
+
+            voucher.Used = reader[1] as int? != null;
 
             return voucher;
         }

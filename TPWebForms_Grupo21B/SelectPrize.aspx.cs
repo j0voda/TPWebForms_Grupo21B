@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TPWebForms_Grupo21B
 {
-    public partial class Contact : Page
+    public partial class SelectPrize : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace acceso_datos
 {
-    internal class VoucherBussiness : Bussiness<Voucher>
+    public class VoucherBussiness : Bussiness<Voucher>
     {
-        public VoucherBussiness(IDBMapper<Voucher> mapper) : 
-            base("Vouchers", "CodigoVoucher", new List<string>() { "IdCliente", "FechaCanje", "IdArticulo" }, mapper)
+        public VoucherBussiness() : 
+            base("Vouchers", "CodigoVoucher", new List<string>() { "IdCliente", "FechaCanje", "IdArticulo" }, new VoucherMapper())
         {
         }
     }

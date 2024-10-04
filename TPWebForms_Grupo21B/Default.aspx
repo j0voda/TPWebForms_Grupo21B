@@ -9,9 +9,11 @@
         </section>
 
         <asp:Label runat="server" CssClass="control-label mb-1" AssociatedControlID="code">Introducí el código de tu voucher</asp:Label>
-        <asp:TextBox ID="code" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="XXXXXXXXXXXXXXXXXXXXX" OnTextChanged="code_TextChanged" AutoPostBack="true"></asp:TextBox>
+        <asp:TextBox ID="code" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="XXXXXXXXXXXXXXXXXXXXX" OnTextChanged="code_TextChanged"></asp:TextBox>
 
         <asp:Button ID="btnNext" runat="server" Text="Siguiente" CssClass="btn btn-primary mt-2" OnClick="btnNext_Click" />
+        
+        <asp:Label ID="lblError" runat="server" Text="" CssClass="invalid-feedback" ></asp:Label>
     </main>
 
 </asp:Content>

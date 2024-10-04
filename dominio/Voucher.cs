@@ -14,5 +14,6 @@ namespace dominio
         public DateTime FechaCanje { get; set; }
         public Articulo Articulo { get; set; }
 
+        public bool Used { get; set; }
     }
 }

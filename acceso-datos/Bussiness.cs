@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -26,9 +27,9 @@ namespace acceso_datos
 
             SqlConnectionStringBuilder sConnB = new SqlConnectionStringBuilder()
             {
-                DataSource = ".\\SQLEXPRESS",
-                //DataSource = "localhost",
-                InitialCatalog = "CATALOGO_P3_DB",
+                //DataSource = ".\\SQLEXPRESS",
+                DataSource = "localhost",
+                InitialCatalog = "PROMOS_DB",
                 IntegratedSecurity = true
             };
 
@@ -108,7 +109,7 @@ namespace acceso_datos
 
             if (res.Count == 0)
             {
-                return obj;
+                return default;
             }
 
             return res[0];
