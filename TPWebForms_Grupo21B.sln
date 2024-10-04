@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPWebForms_Grupo21B", "TPWebForms_Grupo21B\TPWebForms_Grupo21B.csproj", "{7B94442D-7324-4974-A2D0-1A866BD437B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acceso_datos", "acceso-datos\acceso_datos.csproj", "{1700C432-A93B-4880-89A7-DFF09B5801DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{A43EAB6C-8087-44D8-97B6-F63AF03E3434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7B94442D-7324-4974-A2D0-1A866BD437B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B94442D-7324-4974-A2D0-1A866BD437B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B94442D-7324-4974-A2D0-1A866BD437B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1700C432-A93B-4880-89A7-DFF09B5801DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1700C432-A93B-4880-89A7-DFF09B5801DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1700C432-A93B-4880-89A7-DFF09B5801DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1700C432-A93B-4880-89A7-DFF09B5801DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43EAB6C-8087-44D8-97B6-F63AF03E3434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43EAB6C-8087-44D8-97B6-F63AF03E3434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43EAB6C-8087-44D8-97B6-F63AF03E3434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43EAB6C-8087-44D8-97B6-F63AF03E3434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
