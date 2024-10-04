@@ -1,0 +1,12 @@
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\bin\Debug\dominio.dll
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\bin\Debug\dominio.pdb
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\obj\Debug\dominio.dll
+C:\Users\vodaj\source\repos\tp-winform-equipo-21B\dominio\obj\Debug\dominio.pdb
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\bin\Debug\dominio.dll
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\bin\Debug\dominio.pdb
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\obj\Debug\dominio.dll
+C:\Users\vodaj\source\repos\TPWeb_Grupo21B\dominio\obj\Debug\dominio.pdb
