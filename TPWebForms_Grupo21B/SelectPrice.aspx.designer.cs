@@ -11,25 +11,16 @@ namespace TPWebForms_Grupo21B
 {
 
 
-    public partial class _Default
+    public partial class SelectPrice
     {
 
         /// <summary>
-        /// Control code.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox code;
-
-        /// <summary>
-        /// Control btnNext.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }

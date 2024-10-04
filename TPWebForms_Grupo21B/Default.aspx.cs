@@ -13,5 +13,30 @@ namespace TPWebForms_Grupo21B
         {
 
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            string voucherCode = this.code.Text;
+
+            if (voucherCode == null || voucherCode.Length == 0)
+            {
+                return;
+            }
+        }
+
+        protected void code_TextChanged(object sender, EventArgs e)
+        {
+
+            string voucherCode = this.code.Text;
+
+            if (voucherCode == null || voucherCode.Length == 0)
+            {
+                this.code.CssClass = this.code.CssClass + " is-invalid";
+            }
+            else
+            {
+                this.code.CssClass = this.code.CssClass.Replace("is-invalid", "");
+            }
+        }
     }
 }
