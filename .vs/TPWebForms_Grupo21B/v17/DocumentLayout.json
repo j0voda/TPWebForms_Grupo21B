@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vodaj\\source\\repos\\TPWebForms_Grupo21B\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|e:\\carpetas\\dotnet\\tpwebforms_grupo21b\\acceso-datos\\clientmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|solutionrelative:acceso-datos\\clientmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|e:\\carpetas\\dotnet\\tpwebforms_grupo21b\\acceso-datos\\clientbussiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|solutionrelative:acceso-datos\\clientbussiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|e:\\carpetas\\dotnet\\tpwebforms_grupo21b\\acceso-datos\\brandbussiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1700C432-A93B-4880-89A7-DFF09B5801DE}|acceso-datos\\acceso_datos.csproj|solutionrelative:acceso-datos\\brandbussiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,23 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientMapper.cs",
+              "DocumentMoniker": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\ClientMapper.cs",
+              "RelativeDocumentMoniker": "acceso-datos\\ClientMapper.cs",
+              "ToolTip": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\ClientMapper.cs",
+              "RelativeToolTip": "acceso-datos\\ClientMapper.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAUwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T00:39:31.611Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BrandBussiness.cs",
+              "DocumentMoniker": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\BrandBussiness.cs",
+              "RelativeDocumentMoniker": "acceso-datos\\BrandBussiness.cs",
+              "ToolTip": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\BrandBussiness.cs",
+              "RelativeToolTip": "acceso-datos\\BrandBussiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T00:36:27.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientBussiness.cs",
+              "DocumentMoniker": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\ClientBussiness.cs",
+              "RelativeDocumentMoniker": "acceso-datos\\ClientBussiness.cs",
+              "ToolTip": "E:\\Carpetas\\dotnet\\TPWebForms_Grupo21B\\acceso-datos\\ClientBussiness.cs",
+              "RelativeToolTip": "acceso-datos\\ClientBussiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T00:36:13.098Z",
+              "EditorCaption": ""
             }
           ]
         }

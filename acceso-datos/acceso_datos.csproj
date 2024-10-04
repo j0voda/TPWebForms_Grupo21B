@@ -46,6 +46,8 @@
     <Compile Include="Bussiness.cs" />
     <Compile Include="CategoryBussiness.cs" />
     <Compile Include="CategoryMapper.cs" />
+    <Compile Include="ClientBussiness.cs" />
+    <Compile Include="ClientMapper.cs" />
     <Compile Include="IDBMapper.cs" />
     <Compile Include="ImageBussiness.cs" />
     <Compile Include="ImageMapper.cs" />

@@ -16,3 +16,12 @@ C:\Users\vodaj\source\repos\TPWeb_Grupo21B\acceso-datos\obj\Debug\acceso_datos.c
 C:\Users\vodaj\source\repos\TPWeb_Grupo21B\acceso-datos\obj\Debug\acceso_d.625CE5CE.Up2Date
 C:\Users\vodaj\source\repos\TPWeb_Grupo21B\acceso-datos\obj\Debug\acceso-datos.dll
 C:\Users\vodaj\source\repos\TPWeb_Grupo21B\acceso-datos\obj\Debug\acceso-datos.pdb
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\bin\Debug\acceso-datos.dll
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\bin\Debug\acceso-datos.pdb
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\bin\Debug\dominio.dll
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\bin\Debug\dominio.pdb
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\obj\Debug\acceso_datos.csproj.AssemblyReference.cache
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\obj\Debug\acceso_datos.csproj.CoreCompileInputs.cache
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\obj\Debug\acceso_d.625CE5CE.Up2Date
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\obj\Debug\acceso-datos.dll
+E:\Carpetas\dotnet\TPWebForms_Grupo21B\acceso-datos\obj\Debug\acceso-datos.pdb
