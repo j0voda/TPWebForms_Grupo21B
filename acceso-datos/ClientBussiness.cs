@@ -10,12 +10,12 @@ namespace acceso_datos
     internal class ClientBussiness : Bussiness<Cliente>
     {
 
-        public ClientBussiness(IDBMapper<Cliente> mapper) : 
+        public ClientBussiness() : 
             base(
                 "Clientes", 
                 "Id", 
                 new List<string> { "Documento", "Nombre", "Apellido", "Email", "Direccion", "Ciudad", "CP" }, 
-                mapper
+                new ClientMapper()
                 )
         {
         }
