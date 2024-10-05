@@ -12,7 +12,7 @@ namespace acceso_datos
     {
         public string getIdentifier(Cliente obj)
         {
-            return obj.Id.ToString();
+            return obj.Documento;
         }
 
         public List<string> mapFromObject(Cliente obj)

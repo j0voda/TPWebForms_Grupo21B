@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using System.Configuration;
 using System.Net.Mail;
 using System.Net;
+using acceso_datos;
+using dominio;
 
 namespace TPWebForms_Grupo21B
 {
@@ -16,23 +18,12 @@ namespace TPWebForms_Grupo21B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                validateDni();
-                validateName();
-                validateSurname();
-                validateEmail();
-                validateAddress();
-                validateCity();
-                validateCP();
-                validateAccept();
-            }
+            
         }
 
         protected void accept_CheckedChanged(object sender, EventArgs e)
         {
             //Hola
-            bool accepted = accept.Checked;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -45,6 +36,7 @@ namespace TPWebForms_Grupo21B
             validateCity();
             validateCP();
             validateAccept();
+
             labelResults.Text = dni.Text + " " + name.Text + " " + surname.Text;
         }
 
@@ -65,27 +57,34 @@ namespace TPWebForms_Grupo21B
             return classes.Replace("is-invalid", "");
         }
 
-        private void validateDni()
+        private bool validateDni()
         {
+            bool valid = true;
             string dnitxt = this.dni.Text.Trim();
+
             if (string.IsNullOrEmpty(dnitxt))
             {
                 this.dni.CssClass = addIsInvalidClass(this.name.CssClass);
                 this.dniError.Text = "Debe completar el campo.";
+                valid = false;
             }
             else if (!dnitxt.All(char.IsDigit) || dnitxt.Length < 8)
             {
                 this.dni.CssClass = addIsInvalidClass(this.dni.CssClass);
                 this.dniError.Text = "Ingrese 8 caracteres (solo números).";
+                valid = false;   
             }else
             {
                 this.dni.CssClass = removeIsInvalidClass(this.dni.CssClass);
             }
+
+            return valid;
         }
 
         private void validateName()
         {
             string nametxt = this.name.Text.Trim();
+
             if (string.IsNullOrEmpty(nametxt))
             {
                 this.name.CssClass = addIsInvalidClass(this.name.CssClass);
@@ -104,6 +103,7 @@ namespace TPWebForms_Grupo21B
         private void validateSurname()
         {
             string surnametxt = this.surname.Text.Trim();
+
             if (string.IsNullOrEmpty(surnametxt))
             {
                 this.surname.CssClass = addIsInvalidClass(this.surname.CssClass);
@@ -142,13 +142,13 @@ namespace TPWebForms_Grupo21B
 
         private void validateAddress()
         {
-            // Validate street address
-            Regex validateStreetAddressRegex = new Regex("^(\\d{1,}) [a-zA-Z0-9\\s]+(\\,)? [a-zA-Z]+(\\,)? [A-Z]{2} [0-9]{5,6}$");
-             if (string.IsNullOrEmpty(this.address.Text.Trim()))
+            string address = this.address.Text.Trim();
+
+            if (string.IsNullOrEmpty(address))
             {
                 this.address.CssClass = addIsInvalidClass(this.address.CssClass);
                 this.addressError.Text = "Debe completar el campo.";
-            }else if (!validateStreetAddressRegex.IsMatch(this.address.Text.Trim()))
+            }else if (address.Any(ch => !char.IsLetterOrDigit(ch) && ch != ' '))
             {
                 this.address.CssClass = addIsInvalidClass(this.address.CssClass);
                 this.addressError.Text = "Dirección no válida.";
@@ -168,7 +168,7 @@ namespace TPWebForms_Grupo21B
                 this.city.CssClass = addIsInvalidClass(this.city.CssClass);
                 this.cityError.Text = "Debe completar el campo.";
             }
-            else if (cityTxt.Any(char.IsDigit) || !cityTxt.All(char.IsLetter))
+            else if (cityTxt.Any(char.IsDigit))
             {
                 this.city.CssClass = addIsInvalidClass(this.city.CssClass);
                 this.cityError.Text = "Ciudad no válida.";
@@ -238,6 +238,29 @@ namespace TPWebForms_Grupo21B
             catch (Exception ex)
             {
                 throw (new Exception("Error al enviar email."));
+            }
+        }
+
+        protected void dni_TextChanged(object sender, EventArgs e)
+        {
+            if (validateDni())
+            {
+                ClientBussiness clientBussiness = new ClientBussiness();
+                Cliente search = new Cliente();
+                search.Documento = this.dni.Text;
+
+                Cliente c = clientBussiness.getOne(search);
+
+                if (c != null)
+                {
+                    this.name.Text = c.Nombre;
+                    this.surname.Text = c.Apellido;
+                    this.email.Text = c.Email;
+                    this.address.Text = c.Direccion;
+                    this.city.Text = c.Ciudad;
+                    this.cp.Text = c.CodigoPostal.ToString();
+                }
+
             }
         }
     }

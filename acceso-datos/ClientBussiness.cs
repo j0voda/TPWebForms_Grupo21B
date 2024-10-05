@@ -7,14 +7,14 @@ using dominio;
 
 namespace acceso_datos
 {
-    internal class ClientBussiness : Bussiness<Cliente>
+    public class ClientBussiness : Bussiness<Cliente>
     {
 
         public ClientBussiness() : 
             base(
                 "Clientes", 
-                "Id", 
-                new List<string> { "Documento", "Nombre", "Apellido", "Email", "Direccion", "Ciudad", "CP" }, 
+                "Documento", 
+                new List<string> { "Nombre", "Apellido", "Email", "Direccion", "Ciudad", "CP" }, 
                 new ClientMapper()
                 )
         {

@@ -7,7 +7,7 @@
         </section>
 
         <asp:Label runat="server" CssClass="control-label mb-1" AssociatedControlID="dni">DNI: </asp:Label>
-        <asp:TextBox ID="dni" runat="server" MaxLength="8" CssClass="form-control" ClientIDMode="Static" placeholder="99999999"></asp:TextBox>
+        <asp:TextBox ID="dni" runat="server" MaxLength="8" CssClass="form-control" ClientIDMode="Static" placeholder="99999999" OnTextChanged="dni_TextChanged" AutoPostBack="true"></asp:TextBox>
         <asp:Label runat="server" ID="dniError" CssClass="invalid-feedback"></asp:Label>
 
         <br/>
