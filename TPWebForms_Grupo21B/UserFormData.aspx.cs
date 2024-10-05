@@ -18,7 +18,8 @@ namespace TPWebForms_Grupo21B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!IsPostBack)
+                Session.Add("newuser", true);
         }
 
         protected void accept_CheckedChanged(object sender, EventArgs e)
@@ -28,16 +29,47 @@ namespace TPWebForms_Grupo21B
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            validateDni();
-            validateName();
-            validateSurname();
-            validateEmail();
-            validateAddress();
-            validateCity();
-            validateCP();
-            validateAccept();
+            if (validateDni() &&
+                validateName() &&
+                validateSurname() &&
+                validateEmail() &&
+                validateAddress() &&
+                validateCity() &&
+                validateCP() &&
+                validateAccept())
+            {
+                try
+                {
+                    int id = 0;
 
-            labelResults.Text = dni.Text + " " + name.Text + " " + surname.Text;
+                    if ((bool)Session["newuser"])
+                    {
+                        ClientBussiness clientBussiness = new ClientBussiness();
+                        Cliente cnew = new Cliente();
+                        cnew.Documento = this.dni.Text.Trim();
+                        cnew.Nombre = this.name.Text.Trim();
+                        cnew.Apellido = this.surname.Text.Trim();
+                        cnew.Email = this.email.Text.Trim();
+                        cnew.Direccion = this.address.Text.Trim();
+                        cnew.Ciudad = this.city.Text.Trim();
+                        cnew.CodigoPostal = Convert.ToInt32(this.cp.Text.Trim());
+
+                        id = clientBussiness.saveOne(cnew);
+                        if(id <= 0)
+                        { 
+                            throw new Exception("Error al insertar nuevo cliente");
+                        }
+                    }
+
+                    // Redirect a pantalla de Éxito en lugar de home, enviar mail..
+                    //this.sendMail(this.email.Text.Trim(), this.name.Text.Trim() + " " + this.surname.Text.Trim());
+                    Response.Redirect("SelectPrize.aspx");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
 
         protected void name_TextChanged(object sender, EventArgs e)
@@ -81,47 +113,58 @@ namespace TPWebForms_Grupo21B
             return valid;
         }
 
-        private void validateName()
+        private bool validateName()
         {
+            bool valid = true;
             string nametxt = this.name.Text.Trim();
 
             if (string.IsNullOrEmpty(nametxt))
             {
                 this.name.CssClass = addIsInvalidClass(this.name.CssClass);
                 this.nameError.Text = "Debe completar el campo.";
+                valid = false;
             }
             else if (nametxt.Any(char.IsDigit) || !nametxt.All(char.IsLetter))
             {
                 this.name.CssClass = addIsInvalidClass(this.name.CssClass);
                 this.nameError.Text = "Ingrese solo letras.";
+                valid = false;
             }else
             {
                 this.name.CssClass = removeIsInvalidClass(this.name.CssClass);
             }
+
+            return valid;
         }
 
-        private void validateSurname()
+        private bool validateSurname()
         {
+            bool valid = true;
             string surnametxt = this.surname.Text.Trim();
 
             if (string.IsNullOrEmpty(surnametxt))
             {
                 this.surname.CssClass = addIsInvalidClass(this.surname.CssClass);
                 this.surnameError.Text = "Debe completar el campo.";
+                valid = false;
             }
             else if (surnametxt.Any(char.IsDigit) || !surnametxt.All(char.IsLetter))
             {
                 this.surname.CssClass = addIsInvalidClass(this.surname.CssClass);
                 this.surnameError.Text = "Ingrese solo letras.";
+                valid = false;
             }
             else
             {
                 this.surname.CssClass = removeIsInvalidClass(this.surname.CssClass);
             }
+
+            return valid;
         }
 
-        private void validateEmail()
+        private bool validateEmail()
         {
+            bool valid = true;
             var trimmedEmail = this.email.Text.Trim();
             var email = new EmailAddressAttribute();
 
@@ -129,87 +172,106 @@ namespace TPWebForms_Grupo21B
             {
                 this.email.CssClass = addIsInvalidClass(this.email.CssClass);
                 this.emailError.Text = "Debe completar el campo.";
+                valid = false;
             }else if (!email.IsValid(trimmedEmail))
             {
                 this.email.CssClass = addIsInvalidClass(this.email.CssClass);
                 this.emailError.Text = "Email no válido.";
+                valid = false;
             }
             else
             {
                 this.email.CssClass = removeIsInvalidClass(this.email.CssClass);
             }
+
+            return valid;
         }
 
-        private void validateAddress()
+        private bool validateAddress()
         {
+            bool valid = true;
             string address = this.address.Text.Trim();
 
             if (string.IsNullOrEmpty(address))
             {
                 this.address.CssClass = addIsInvalidClass(this.address.CssClass);
                 this.addressError.Text = "Debe completar el campo.";
+                valid = false;
             }else if (address.Any(ch => !char.IsLetterOrDigit(ch) && ch != ' '))
             {
                 this.address.CssClass = addIsInvalidClass(this.address.CssClass);
                 this.addressError.Text = "Dirección no válida.";
+                valid = false;
             }
             else
             {
                 this.address.CssClass = removeIsInvalidClass(this.address.CssClass);
             }
+            return valid;
         }
 
-        private void validateCity()
+        private bool validateCity()
         {
+            bool valid = true;
             string cityTxt = this.city.Text.Trim();
 
             if (string.IsNullOrEmpty(cityTxt))
             {
                 this.city.CssClass = addIsInvalidClass(this.city.CssClass);
                 this.cityError.Text = "Debe completar el campo.";
+                valid = false;
             }
             else if (cityTxt.Any(char.IsDigit))
             {
                 this.city.CssClass = addIsInvalidClass(this.city.CssClass);
                 this.cityError.Text = "Ciudad no válida.";
+                valid = false;
             }
             else
             {
                 this.city.CssClass = removeIsInvalidClass(this.city.CssClass);
             }
+            return valid;
         }
 
-        private void validateCP()
+        private bool validateCP()
         {
+            bool valid = true;
             string cpTxt = this.cp.Text.Trim();
 
             if (string.IsNullOrEmpty(cpTxt))
             {
                 this.cp.CssClass = addIsInvalidClass(this.cp.CssClass);
                 this.cpError.Text = "Debe completar el campo.";
+                valid = false;
             }
             else if (!cpTxt.All(char.IsDigit) || cpTxt.Length < 4)
             {
                 this.cp.CssClass = addIsInvalidClass(this.cp.CssClass);
                 this.cpError.Text = "Código postal no válido.";
+                valid = false;
             }
             else
             {
                 this.cp.CssClass = removeIsInvalidClass(this.cp.CssClass);
             }
+            return valid;
         }
 
-        private void validateAccept()
+        private bool validateAccept()
         {
+            bool valid = true;
             if (!this.accept.Checked)
             {
                 this.accept.CssClass = addIsInvalidClass(this.accept.CssClass);
                 this.acceptError.Text = "Debe aceptar los términos y condiciones.";
+                valid = false;
             }
             else
             {
                 this.accept.CssClass = removeIsInvalidClass(this.accept.CssClass);
             }
+            return valid;
         }
 
         private void sendMail(string email, string nombreCompleto)
@@ -253,6 +315,9 @@ namespace TPWebForms_Grupo21B
 
                 if (c != null)
                 {
+                    // Definimos que no hay que guardar este cliente porque ya existe
+                    Session.Add("newuser", false);
+
                     this.name.Text = c.Nombre;
                     this.surname.Text = c.Apellido;
                     this.email.Text = c.Email;

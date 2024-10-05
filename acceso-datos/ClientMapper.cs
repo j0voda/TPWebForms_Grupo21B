@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace acceso_datos
 {
@@ -17,7 +18,16 @@ namespace acceso_datos
 
         public List<string> mapFromObject(Cliente obj)
         {
-            return new List<string>();
+            List<string> strings = new List<string>();
+            strings.Add(obj.Documento);
+            strings.Add(obj.Nombre);
+            strings.Add(obj.Apellido);
+            strings.Add(obj.Email);
+            strings.Add(obj.Direccion);
+            strings.Add(obj.Ciudad);
+            strings.Add(obj.CodigoPostal.ToString());
+
+            return strings;
         }
 
         public Cliente mapToObject(SqlDataReader reader)

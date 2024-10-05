@@ -70,10 +70,5 @@
                 <asp:Button ID="btnSubmit" runat="server" Text="Participar" CssClass="btn btn-primary mt-2" OnClick="btnSubmit_Click"/>
             </div>
         </div>
-
-        <div class="row">
-            <h1>Results</h1>
-            <p><asp:Label runat="server" ID="labelResults"></asp:Label></p>
-        </div>
     </main>
 </asp:Content>
