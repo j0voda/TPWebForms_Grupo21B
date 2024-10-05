@@ -22,8 +22,7 @@ namespace TPWebForms_Grupo21B
 
             if (voucherCode == null || voucherCode.Length == 0)
             {
-                this.code.CssClass = this.code.CssClass + " is-invalid";
-                this.lblError.Text = "El código es de ingreso obligatorio.";
+                updateErrors("El código es de ingreso obligatorio.");
                 return;
             }
 
@@ -36,15 +35,13 @@ namespace TPWebForms_Grupo21B
 
             if (v == null)
             {
-                this.code.CssClass = this.code.CssClass + " is-invalid";
-                this.lblError.Text = "No se encontró un voucher asociado.";
+                updateErrors("No se encontró un voucher asociado.");
                 return;
             }
 
             if (v.Used)
             {
-                this.code.CssClass = this.code.CssClass + " is-invalid";
-                this.lblError.Text = "El voucher ya a sido usado.";
+                updateErrors("El voucher ya a sido usado.");
                 return;
             }
 
@@ -60,13 +57,37 @@ namespace TPWebForms_Grupo21B
 
             if (voucherCode == null || voucherCode.Length == 0)
             {
-                this.code.CssClass = this.code.CssClass + " is-invalid";
-                this.lblError.Text = "El código es de ingreso obligatorio.";
+                updateErrors("El código es de ingreso obligatorio.");
             }
             else
             {
-                this.code.CssClass = this.code.CssClass.Replace("is-invalid", "");
+                updateErrors();
             }
+        }
+
+        private void updateErrors(string error = null)
+        {
+            if (error != null)
+            {
+                this.code.CssClass = addIsInvalidClass(this.code.CssClass);
+                this.lblError.Text = error;
+            }
+            else
+            {
+                this.code.CssClass = removeIsInvalidClass(this.code.CssClass);
+            }
+        }
+
+        private string addIsInvalidClass(string classes)
+        {
+            if (!classes.Contains("is-valid")) return classes + " is-invalid";
+
+            return classes;
+        }
+
+        private string removeIsInvalidClass(string classes)
+        {
+            return classes.Replace("is-invalid", "");
         }
     }
 }
