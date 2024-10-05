@@ -48,6 +48,8 @@ namespace TPWebForms_Grupo21B
                 return;
             }
 
+            Session.Add("voucher", v.Codigo);
+
             Response.Redirect("SelectPrize.aspx");
         }
 
