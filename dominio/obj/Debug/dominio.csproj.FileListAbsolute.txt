@@ -16,3 +16,9 @@ E:\Carpetas\dotnet\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.csproj.Assembly
 E:\Carpetas\dotnet\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 E:\Carpetas\dotnet\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.dll
 E:\Carpetas\dotnet\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.pdb
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\bin\Debug\dominio.dll
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\bin\Debug\dominio.pdb
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.dll
+C:\Users\vodaj\source\repos\TPWebForms_Grupo21B\dominio\obj\Debug\dominio.pdb
