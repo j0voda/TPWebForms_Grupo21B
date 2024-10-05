@@ -63,7 +63,7 @@ namespace TPWebForms_Grupo21B
 
                     // Redirect a pantalla de Éxito en lugar de home, enviar mail..
                     //this.sendMail(this.email.Text.Trim(), this.name.Text.Trim() + " " + this.surname.Text.Trim());
-                    Response.Redirect("SelectPrize.aspx");
+                    Response.Redirect("Success.aspx");
                 }
                 catch (Exception ex)
                 {
@@ -291,7 +291,7 @@ namespace TPWebForms_Grupo21B
                 message.Body = body;
 
                 var client = new SmtpClient();
-                client.Credentials = new NetworkCredential(fromEmailAddress, fromEmailPassword);
+                client.Credentials = CredentialCache.DefaultNetworkCredentials; //new NetworkCredential(fromEmailAddress, fromEmailPassword);
                 client.Host = smtpHost;
                 client.EnableSsl = true;
                 client.Port = !string.IsNullOrEmpty(smtpPort) ? Convert.ToInt32(smtpPort) : 0;
