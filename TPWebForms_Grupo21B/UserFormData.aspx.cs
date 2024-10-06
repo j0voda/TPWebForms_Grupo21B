@@ -90,7 +90,7 @@ namespace TPWebForms_Grupo21B
                         id = clientBussiness.saveOne(cnew);
                         if(id <= 0)
                         { 
-                            throw new Exception("Error al insertar nuevo cliente");
+                           throw new Exception("Error al insertar nuevo cliente");
                         }
 
                         VoucherBussiness voucherB = new VoucherBussiness();
@@ -114,9 +114,11 @@ namespace TPWebForms_Grupo21B
                         voucherB.updateOne(v);
                     }
 
-                    // Redirect a pantalla de Éxito en lugar de home, enviar mail..
-                    //this.sendMail(this.email.Text.Trim(), this.name.Text.Trim() + " " + this.surname.Text.Trim());
-                    Response.Redirect("Success.aspx");
+                    // Enviar mail..
+                    this.sendMail(this.email.Text.Trim(), this.name.Text.Trim() + " " + this.surname.Text.Trim());
+
+                    // Redirect a pantalla de Éxito en lugar de home
+                    Response.Redirect("Success.aspx", false);
                 }
                 catch (Exception ex)
                 {
@@ -345,7 +347,7 @@ namespace TPWebForms_Grupo21B
                 message.Body = body;
 
                 var client = new SmtpClient();
-                client.Credentials = CredentialCache.DefaultNetworkCredentials; //new NetworkCredential(fromEmailAddress, fromEmailPassword);
+                client.Credentials = new NetworkCredential(fromEmailAddress, fromEmailPassword);
                 client.Host = smtpHost;
                 client.EnableSsl = true;
                 client.Port = !string.IsNullOrEmpty(smtpPort) ? Convert.ToInt32(smtpPort) : 0;
