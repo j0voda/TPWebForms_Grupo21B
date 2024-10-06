@@ -6,7 +6,7 @@
         <div class="row row-cols-3 gap-2">
             <% foreach (dominio.Articulo item in Articulos)
                 { %>
-            <div class="card p-2" style="width: 30%; height: 450px; justify-content: space-between">
+            <div class="card p-2" style="width: 30%; height: 450px; justify-content: space-between" data-id="<%: item.Codigo %>">
                 <div id="<%:item.Codigo %>-carousel" class="carousel slide h-50 card-header">
                     <div class="carousel-indicators">
                         <%
@@ -38,7 +38,7 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <h5 class="card-title"><%: item.Nombre %></h5>
                     <p class="card-text flex-grow-1"><%: item.Descripcion %></p>
-                    <a href="#" class="btn btn-primary">Elegir este</a>
+                    <a href="UserFormData.aspx?item=<%: item.Codigo %>" class="btn btn-primary">Elegi este</a>
                 </div>
             </div>
             <% } %>

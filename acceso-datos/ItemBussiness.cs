@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using dominio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace acceso_datos
 {
@@ -89,5 +90,18 @@ namespace acceso_datos
             base.deleteOne(item);
         }
 
+        public Articulo getOneByCode(string code)
+        {
+            List<Articulo> result = base.select(
+                $"t.{idColumn}, t.{String.Join(" ,t.", columns)}, c.Descripcion as CatDescription, m.Descripcion as MarDescription",
+                "INNER JOIN CATEGORIAS c ON c.Id=IdCategoria " +
+                "INNER JOIN MARCAS m ON m.Id=IdMarca" + $" WHERE t.Codigo='{code}'");
+
+            if (result.Count == 0) {
+                return default;
+            }
+
+            return result[0];
+        }
     }
 }

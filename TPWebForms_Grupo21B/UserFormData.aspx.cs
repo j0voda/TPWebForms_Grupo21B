@@ -16,10 +16,43 @@ namespace TPWebForms_Grupo21B
 {
     public partial class UserFormData : System.Web.UI.Page
     {
+
+        private string voucherCode;
+        private Articulo item;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
+            {
+                if (Session["voucher"] == null)
+                {
+                    Response.Redirect("Default.aspx");
+                    return;
+                }
+
                 Session.Add("newuser", true);
+
+                voucherCode = Session["voucher"].ToString();
+
+                string itemCode = Request.QueryString["item"];
+
+                if (itemCode == null)
+                {
+                    Response.Redirect($"Default.aspx?error=Ocurrió un error inesperado");
+                    return;
+                }
+
+                ItemBussiness itemB = new ItemBussiness();
+                Articulo art = itemB.getOneByCode(itemCode);
+
+                if (art == null)
+                {
+                    Response.Redirect($"Default.aspx?error=Ocurrió un error inesperado");
+                    return;
+                }
+
+                this.item = art;
+            }
         }
 
         protected void accept_CheckedChanged(object sender, EventArgs e)
@@ -59,6 +92,26 @@ namespace TPWebForms_Grupo21B
                         { 
                             throw new Exception("Error al insertar nuevo cliente");
                         }
+
+                        VoucherBussiness voucherB = new VoucherBussiness();
+
+
+                        Voucher v = new Voucher();
+                        v.Codigo = this.voucherCode;
+                        v = voucherB.getOne(v);
+                    
+                        if (v.Codigo != this.voucherCode)
+                        {
+                            throw new Exception("Voucher no encontrado");
+                        }
+
+                        v.FechaCanje = new DateTime();
+                        v.Cliente = new Cliente();
+                        v.Cliente.Id = id;
+
+                        v.Articulo = this.item;
+
+                        voucherB.updateOne(v);
                     }
 
                     // Redirect a pantalla de Éxito en lugar de home, enviar mail..
@@ -68,6 +121,7 @@ namespace TPWebForms_Grupo21B
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    Response.Redirect($"Default.aspx?error={ex.Message}");
                 }
             }
         }

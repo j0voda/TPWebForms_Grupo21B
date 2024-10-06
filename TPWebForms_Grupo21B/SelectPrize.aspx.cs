@@ -44,5 +44,10 @@ namespace TPWebForms_Grupo21B
 
             this.Articulos = itemBussiness.getAll();
         }
+
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("HO");
+        }
     }
 }

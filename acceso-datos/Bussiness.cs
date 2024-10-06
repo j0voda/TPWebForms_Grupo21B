@@ -27,8 +27,8 @@ namespace acceso_datos
 
             SqlConnectionStringBuilder sConnB = new SqlConnectionStringBuilder()
             {
-                DataSource = ".\\SQLEXPRESS",
-                //DataSource = "localhost",
+                //DataSource = ".\\SQLEXPRESS",
+                DataSource = "localhost",
                 InitialCatalog = "PROMOS_DB",
                 IntegratedSecurity = true
             };
