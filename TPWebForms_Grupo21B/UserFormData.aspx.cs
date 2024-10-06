@@ -340,9 +340,9 @@ namespace TPWebForms_Grupo21B
                 var smtpHost = ConfigurationManager.AppSettings["SMTPHost"].ToString();
                 var smtpPort = ConfigurationManager.AppSettings["SMTPPort"].ToString();
 
-                string body = "Su registro para la promoción del grupo 21 B ha sido realizada con éxito. ¡Gracias!.";
+                string body = $"Canjeaste el producto {item.Marca} - {item.Nombre} a través del codigo {voucherCode}. ¡Que lo disfrutes!";
                 MailMessage message = new MailMessage(new MailAddress(fromEmailAddress, fromEmailDisplayName), new MailAddress(email, nombreCompleto));
-                message.Subject = "Registro exitoso.";
+                message.Subject = "Promo voucher - Registro exitoso.";
                 message.IsBodyHtml = true;
                 message.Body = body;
 
