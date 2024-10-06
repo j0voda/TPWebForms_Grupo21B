@@ -110,17 +110,17 @@ namespace TPWebForms_Grupo21B
                            throw new Exception("Error al insertar nuevo cliente");
                         }
 
-
-                        voucher.FechaCanje = new DateTime();
-                        voucher.Cliente = new Cliente();
-                        voucher.Cliente.Id = id;
-
-                        voucher.Articulo = item;
-
-                        VoucherBussiness voucherB = new VoucherBussiness();
-
-                        voucherB.updateOne(voucher);
                     }
+
+                    voucher.FechaCanje = new DateTime();
+                    voucher.Cliente = new Cliente();
+                    voucher.Cliente.Id = id;
+
+                    voucher.Articulo = item;
+
+                    VoucherBussiness voucherB = new VoucherBussiness();
+
+                    voucherB.updateOne(voucher);
 
                     // Enviar mail..
                     this.sendMail(this.email.Text.Trim(), this.name.Text.Trim() + " " + this.surname.Text.Trim());
