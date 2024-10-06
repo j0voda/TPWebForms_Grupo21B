@@ -17,8 +17,8 @@ namespace TPWebForms_Grupo21B
     public partial class UserFormData : System.Web.UI.Page
     {
 
-        private Voucher voucher;
-        private Articulo item;
+        private static Voucher voucher;
+        private static Articulo item;
 
         private string DEFAULT_PAGE_ERROR = $"Default.aspx?error=true";
 
@@ -39,15 +39,15 @@ namespace TPWebForms_Grupo21B
                 VoucherBussiness voucherB = new VoucherBussiness();
                 Voucher v = new Voucher();
                 v.Codigo = voucherCode;
-                this.voucher = voucherB.getOne(v);
+                voucher = voucherB.getOne(v);
 
-                if (this.voucher == null)
+                if (voucher == null)
                 {
                     Response.Redirect(DEFAULT_PAGE_ERROR);
                     return;
                 }
 
-                this.lblVoucher.Text = "Esta canjeando el voucher con código: " + this.voucher.Codigo;
+                this.lblVoucher.Text = "Esta canjeando el voucher con código: " + voucher.Codigo;
 
                 Session.Add("newuser", true);
 
@@ -68,7 +68,7 @@ namespace TPWebForms_Grupo21B
                     return;
                 }
 
-                this.item = art;
+                item = art;
             }
         }
 
@@ -111,15 +111,15 @@ namespace TPWebForms_Grupo21B
                         }
 
 
-                        this.voucher.FechaCanje = new DateTime();
-                        this.voucher.Cliente = new Cliente();
-                        this.voucher.Cliente.Id = id;
+                        voucher.FechaCanje = new DateTime();
+                        voucher.Cliente = new Cliente();
+                        voucher.Cliente.Id = id;
 
-                        this.voucher.Articulo = this.item;
+                        voucher.Articulo = item;
 
                         VoucherBussiness voucherB = new VoucherBussiness();
 
-                        voucherB.updateOne(this.voucher);
+                        voucherB.updateOne(voucher);
                     }
 
                     // Enviar mail..
@@ -348,7 +348,7 @@ namespace TPWebForms_Grupo21B
                 var smtpHost = ConfigurationManager.AppSettings["SMTPHost"].ToString();
                 var smtpPort = ConfigurationManager.AppSettings["SMTPPort"].ToString();
 
-                string body = $"Canjeaste el producto {item.Marca} - {item.Nombre} a través del codigo {this.voucher.Codigo}. ¡Que lo disfrutes!";
+                string body = $"Canjeaste el producto {item.Marca} - {item.Nombre} a través del codigo {voucher.Codigo}. ¡Que lo disfrutes!";
                 MailMessage message = new MailMessage(new MailAddress(fromEmailAddress, fromEmailDisplayName), new MailAddress(email, nombreCompleto));
                 message.Subject = "Promo voucher - Registro exitoso.";
                 message.IsBodyHtml = true;
