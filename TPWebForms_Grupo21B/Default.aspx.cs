@@ -11,9 +11,12 @@ namespace TPWebForms_Grupo21B
 {
     public partial class _Default : Page
     {
+
+        public bool HasError = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.HasError = Request.QueryString["error"] != null;
         }
 
         protected void btnNext_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@
     <main>
         <section class="row" aria-labelledby="aspnetTitle">
             <h1 id="aspnetTitle">Completá el formulario con tus datos.</h1>
+            <asp:Label ID="lblVoucher" runat="server" Text=""></asp:Label>
         </section>
 
         <asp:Label runat="server" CssClass="control-label mb-1" AssociatedControlID="dni">DNI: </asp:Label>
