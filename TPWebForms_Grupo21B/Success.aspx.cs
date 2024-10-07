@@ -13,5 +13,11 @@ namespace TPWebForms_Grupo21B
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            // Volver al home
+            Response.Redirect("Default.aspx", false);
+        }
     }
 }
