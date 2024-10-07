@@ -41,27 +41,14 @@ namespace acceso_datos
 
         override public Cliente getOne(Cliente c)
         {
-            sqlConexion.Open();
+            List<Cliente> res = select($"*", $"WHERE Documento = {c.Documento}; SELECT SCOPE_IDENTITY();");
 
-            string query = String.Format("SELECT * FROM {0} WHERE ", tableName);
-            query += $"Documento = {c.Documento}; SELECT SCOPE_IDENTITY();";
-            reader = this.executeCommand(query);
-
-            if (reader.Read())
+            if (res.Count == 0)
             {
-                c.Id = Convert.ToInt32(reader[0]);
-                c.Documento = reader[1].ToString();
-                c.Nombre = reader[2].ToString();
-                c.Apellido = reader[3].ToString();
-                c.Email = reader[4].ToString(); 
-                c.Direccion = reader[5].ToString();
-                c.Ciudad = reader[6].ToString();
-                c.CodigoPostal = Convert.ToInt32(reader[7]);
+                return default;
             }
 
-            sqlConexion.Close();
-
-            return c;
+            return res[0];
         }
     }
 }

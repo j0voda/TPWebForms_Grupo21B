@@ -16,6 +16,7 @@ namespace TPWebForms_Grupo21B
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Title = "Inicio";
             this.HasError = Request.QueryString["error"] != null;
         }
 

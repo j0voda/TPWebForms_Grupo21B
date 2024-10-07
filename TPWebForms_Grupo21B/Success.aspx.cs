@@ -11,7 +11,7 @@ namespace TPWebForms_Grupo21B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.Title = "Felicitaciones por tu premio";
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

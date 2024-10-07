@@ -17,7 +17,7 @@ namespace TPWebForms_Grupo21B
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.Title = "Elige tu premio!!!";
             if (IsPostBack) return;
 
             if (Session["voucher"] == null)

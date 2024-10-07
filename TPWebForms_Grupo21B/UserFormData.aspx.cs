@@ -25,6 +25,8 @@ namespace TPWebForms_Grupo21B
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Title = "Registro de cliente";
+
             if(!IsPostBack)
             {
 
@@ -93,6 +95,7 @@ namespace TPWebForms_Grupo21B
                     {
                         int id = 0;
                         ClientBussiness clientBussiness = new ClientBussiness();
+                        cliente = new Cliente();
                         cliente.Documento = this.dni.Text.Trim();
                         cliente.Nombre = this.name.Text.Trim();
                         cliente.Apellido = this.surname.Text.Trim();
@@ -106,7 +109,7 @@ namespace TPWebForms_Grupo21B
                         { 
                            throw new Exception("Error al insertar nuevo cliente");
                         }
-
+                        cliente.Id = id;
                     }
 
                     voucher.FechaCanje = DateTime.Now;
@@ -373,17 +376,24 @@ namespace TPWebForms_Grupo21B
 
                 Cliente c = clientBussiness.getOne(search);
 
+                // Definimos que no hay que guardar este cliente porque ya existe o se pisa con null por si hay un valor previo
+                cliente = c;
+
                 if (c != null)
                 {
-                    // Definimos que no hay que guardar este cliente porque ya existe
-                    cliente = c;
-
                     this.name.Text = c.Nombre;
                     this.surname.Text = c.Apellido;
                     this.email.Text = c.Email;
                     this.address.Text = c.Direccion;
                     this.city.Text = c.Ciudad;
                     this.cp.Text = c.CodigoPostal.ToString();
+                } else {
+                    this.name.Text = null;
+                    this.surname.Text = null;
+                    this.email.Text = null;
+                    this.address.Text = null;
+                    this.city.Text = null;
+                    this.cp.Text = null;
                 }
 
             }

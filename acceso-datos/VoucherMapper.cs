@@ -17,7 +17,12 @@ namespace acceso_datos
 
         public List<string> mapFromObject(Voucher obj)
         {
-            throw new NotImplementedException();
+            List<string> args = new List<string>();
+            args.Add($"{obj.Cliente.Id}");
+            args.Add($"'{obj.FechaCanje.ToString("yyyy-MM-dd")}'");
+            args.Add($"{obj.Articulo.Id}");
+
+            return args;
         }
 
         public Voucher mapToObject(SqlDataReader reader)

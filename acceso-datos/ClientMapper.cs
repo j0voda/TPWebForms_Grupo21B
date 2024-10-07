@@ -34,13 +34,15 @@ namespace acceso_datos
         {
             Cliente client = new Cliente();
 
-            client.Documento = reader.GetString(0);
-            client.Nombre = reader.GetString(1);
-            client.Apellido = reader.GetString(2);
-            client.Email = reader.GetString(3);
-            client.Direccion = reader.GetString(4);
-            client.Ciudad = reader.GetString(5);
-            client.CodigoPostal = reader.GetInt32(6);
+
+            client.Id = Convert.ToInt32(reader[0]);
+            client.Documento = reader.GetString(1);
+            client.Nombre = reader.GetString(2);
+            client.Apellido = reader.GetString(3);
+            client.Email = reader.GetString(4);
+            client.Direccion = reader.GetString(5);
+            client.Ciudad = reader.GetString(6);
+            client.CodigoPostal = reader.GetInt32(7);
 
             return client;
         }
