@@ -187,7 +187,7 @@ namespace TPWebForms_Grupo21B
                 this.nameError.Text = "Debe completar el campo.";
                 valid = false;
             }
-            else if (nametxt.Any(char.IsDigit) || !nametxt.All(char.IsLetter))
+            else if (nametxt.Any(ch => !char.IsLetterOrDigit(ch) && ch != ' '))
             {
                 this.name.CssClass = addIsInvalidClass(this.name.CssClass);
                 this.nameError.Text = "Ingrese solo letras.";
@@ -211,7 +211,7 @@ namespace TPWebForms_Grupo21B
                 this.surnameError.Text = "Debe completar el campo.";
                 valid = false;
             }
-            else if (surnametxt.Any(char.IsDigit) || !surnametxt.All(char.IsLetter))
+            else if (surnametxt.Any(ch => !char.IsLetterOrDigit(ch) && ch != ' '))
             {
                 this.surname.CssClass = addIsInvalidClass(this.surname.CssClass);
                 this.surnameError.Text = "Ingrese solo letras.";
