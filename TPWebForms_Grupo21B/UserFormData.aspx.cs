@@ -109,7 +109,7 @@ namespace TPWebForms_Grupo21B
 
                     }
 
-                    voucher.FechaCanje = new DateTime();
+                    voucher.FechaCanje = DateTime.Now;
                     voucher.Cliente = cliente;
 
                     voucher.Articulo = item;
