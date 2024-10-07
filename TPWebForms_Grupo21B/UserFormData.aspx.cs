@@ -19,6 +19,7 @@ namespace TPWebForms_Grupo21B
 
         private static Voucher voucher;
         private static Articulo item;
+        private static Cliente cliente;
 
         private string DEFAULT_PAGE_ERROR = $"Default.aspx?error=true";
 
@@ -48,8 +49,6 @@ namespace TPWebForms_Grupo21B
                 }
 
                 this.lblVoucher.Text = "Esta canjeando el voucher con código: " + voucher.Codigo;
-
-                Session.Add("newuser", true);
 
                 string itemCode = Request.QueryString["item"];
 
@@ -90,21 +89,19 @@ namespace TPWebForms_Grupo21B
             {
                 try
                 {
-                    int id = 0;
-
-                    if (Boolean.Parse(Session["newuser"].ToString()))
+                    if (cliente == null)
                     {
+                        int id = 0;
                         ClientBussiness clientBussiness = new ClientBussiness();
-                        Cliente cnew = new Cliente();
-                        cnew.Documento = this.dni.Text.Trim();
-                        cnew.Nombre = this.name.Text.Trim();
-                        cnew.Apellido = this.surname.Text.Trim();
-                        cnew.Email = this.email.Text.Trim();
-                        cnew.Direccion = this.address.Text.Trim();
-                        cnew.Ciudad = this.city.Text.Trim();
-                        cnew.CodigoPostal = Convert.ToInt32(this.cp.Text.Trim());
+                        cliente.Documento = this.dni.Text.Trim();
+                        cliente.Nombre = this.name.Text.Trim();
+                        cliente.Apellido = this.surname.Text.Trim();
+                        cliente.Email = this.email.Text.Trim();
+                        cliente.Direccion = this.address.Text.Trim();
+                        cliente.Ciudad = this.city.Text.Trim();
+                        cliente.CodigoPostal = Convert.ToInt32(this.cp.Text.Trim());
 
-                        id = clientBussiness.saveOne(cnew);
+                        id = clientBussiness.saveOne(cliente);
                         if(id <= 0)
                         { 
                            throw new Exception("Error al insertar nuevo cliente");
@@ -113,8 +110,7 @@ namespace TPWebForms_Grupo21B
                     }
 
                     voucher.FechaCanje = new DateTime();
-                    voucher.Cliente = new Cliente();
-                    voucher.Cliente.Id = id;
+                    voucher.Cliente = cliente;
 
                     voucher.Articulo = item;
 
@@ -380,7 +376,7 @@ namespace TPWebForms_Grupo21B
                 if (c != null)
                 {
                     // Definimos que no hay que guardar este cliente porque ya existe
-                    Session.Add("newuser", false);
+                    cliente = c;
 
                     this.name.Text = c.Nombre;
                     this.surname.Text = c.Apellido;
