@@ -382,18 +382,40 @@ namespace TPWebForms_Grupo21B
                 if (c != null)
                 {
                     this.name.Text = c.Nombre;
+                    this.name.ReadOnly = true;
+
                     this.surname.Text = c.Apellido;
+                    this.surname.ReadOnly = true;
+
                     this.email.Text = c.Email;
+                    this.email.ReadOnly = true;
+
                     this.address.Text = c.Direccion;
+                    this.address.ReadOnly = true;
+
                     this.city.Text = c.Ciudad;
+                    this.city.ReadOnly = true;
+
                     this.cp.Text = c.CodigoPostal.ToString();
+                    this.cp.ReadOnly = true;
                 } else {
                     this.name.Text = null;
+                    this.name.ReadOnly = false;
+
                     this.surname.Text = null;
+                    this.surname.ReadOnly = false;
+
                     this.email.Text = null;
+                    this.email.ReadOnly = false;
+
                     this.address.Text = null;
+                    this.address.ReadOnly = false;
+
                     this.city.Text = null;
+                    this.city.ReadOnly = false;
+
                     this.cp.Text = null;
+                    this.cp.ReadOnly = false;
                 }
 
             }
